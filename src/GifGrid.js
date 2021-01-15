@@ -20,17 +20,21 @@ export const GifGrid = ({category})=>{
         <h3 className = 'animate__animated animate__backInDown'>{category}</h3>
         {/* Es el titulo que aparece tras buscar */}
         {loading && <p className= 'animate__animated animate__flash'>Loading</p>}
-        <div className="card-grid">
+        {
+            !loading && (
+                <div className="card-grid">
 
-                {
-                    images.map( img=> (
-                        <GifGridItem 
-                        key={img.id}
-                        {...img}
-                        />
-                    ))
-                }
-        </div>
+                        {
+                            images.map( img=> (
+                                <GifGridItem
+                                key={img.id}
+                                {...img}
+                                />
+                            ))
+                        }
+                </div>
+            )
+        }
     </>
     )
 }
